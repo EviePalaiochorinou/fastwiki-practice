@@ -8,7 +8,7 @@ router = APIRouter(
 )
 
 @router.get(
-    '/all',
+    '/',
     summary = "Retrieve all documents",
     description= "This api call is fetching all documents",
     response_description= "The list of available documents"
