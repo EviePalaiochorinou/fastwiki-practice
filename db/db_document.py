@@ -10,3 +10,6 @@ def get_document(db: Session, title: str):
         raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
         detail = f'Document with title {title} not found')
     return document
+
+def get_all_documents(db: Session):
+    return db.query(DBDocument).all()

@@ -1,6 +1,7 @@
 from fastapi import APIRouter, status, Response, APIRouter, Depends
 from enum import Enum
 from typing import Optional
+from db import db_document
 
 router = APIRouter(
     prefix='/documents',
@@ -14,4 +15,4 @@ router = APIRouter(
     response_description= "The list of available documents"
     )
 def get_all_documents():
-    return {"message": f"All available documents."}
+    return db_document.get_all_documents
