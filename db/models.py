@@ -1,14 +1,11 @@
-from sqlite3 import Timestamp
-from xmlrpc.client import Boolean
 from db.database import Base
 from sqlalchemy import Column
-from sqlalchemy.sql.sqltypes import Integer, String, Boolean, DateTime
-#from sqlalchemy.sql.schema import ForeignKey
-#from sqlalchemy.orm import relationship
+from sqlalchemy.sql.sqltypes import Integer, String, DateTime
+from datetime import datetime
 
 class DBDocument(Base):
     __tablename__ = "documents"
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String)
+    title = Column(String, index=True)
     content = Column(String)
-    timestamp = Column(DateTime)
+    timestamp = Column(DateTime(timezone=True), default=datetime.utcnow, )

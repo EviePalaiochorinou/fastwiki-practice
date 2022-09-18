@@ -10,5 +10,6 @@ from starlette.responses import PlainTextResponse
 
 app = FastAPI()
 app.include_router(document_get.router)
+app.include_router(document_post.router)
 
 models.Base.metadata.create_all(engine)

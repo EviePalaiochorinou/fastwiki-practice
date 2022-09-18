@@ -1,7 +1,8 @@
-from fastapi import APIRouter, status, Response, APIRouter, Depends
-from enum import Enum
+from fastapi import APIRouter, APIRouter, Depends
 from typing import Optional
+from sqlalchemy.orm.session import Session
 from db import db_document
+from db.database import get_db
 
 router = APIRouter(
     prefix='/documents',
@@ -14,5 +15,5 @@ router = APIRouter(
     description= "This api call is fetching all documents",
     response_description= "The list of available documents"
     )
-def get_all_documents():
-    return db_document.get_all_documents
+def get_all_documents(db: Session = Depends(get_db)):
+    return db_document.get_all_documents(db)

@@ -7,6 +7,9 @@ class DocumentBase(BaseModel):
     title: str
     content: str
 
+class DocumentCreate(BaseModel):
+    content: str
+
 class DocumentDisplay(BaseModel):
     title: str
     content: str
