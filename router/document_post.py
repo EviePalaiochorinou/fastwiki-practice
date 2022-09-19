@@ -17,8 +17,3 @@ def create_new_document_revision(title: str, request: DocumentCreate,  db: Sessi
     db_document.create_new_document_revision(
         db, title, request
     )
-    # return {
-    #     'title': title,
-    #     'content': content,
-    #     'data': document
-    # }

@@ -3,13 +3,9 @@ from db.models import DBDocument
 from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 from schemas import DocumentBase, DocumentCreate
 from sqlalchemy.orm.session import Session
-from fastapi import HTTPException, status
 
 def get_document(db: Session, title: str) -> DocumentBase:
-    document = db.query(DBDocument).filter(DBDocument.title == title).first()
-    if not document:
-        raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
-        detail = f'Document with title {title} not found')
+    document = db.query(DBDocument).filter(DBDocument.title == title).all()
     return document
 
 def get_all_documents(db: Session):
