@@ -1,9 +1,10 @@
 from fastapi import APIRouter, APIRouter, Depends
-from typing import Optional
+#from typing import Optional
 from sqlalchemy.orm.session import Session
 from db import db_document
 from db.database import get_db
 from fastapi import HTTPException, status
+from schemas import DocumentDisplay
 
 router = APIRouter(
     prefix='/documents',
