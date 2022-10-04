@@ -29,9 +29,15 @@ any timestamp to fetch a revision e.g. If we have a document at time 1pm and tim
 
 1. Open the Git Bundle  
 
-2. Activate your virtual environment
-
-3. Install the requirements
+2. Create a virtual environment
+   ```sh
+   python3 -m venv /path/to/new/virtual/environment
+   ``` 
+3. Activate your virtual environment
+   ```sh
+   source your-virt-env-folder/bin/activate
+   ``` 
+4. Install the requirements
    ```sh
    python -m pip install --upgrade pip
    pip install -r requirements.txt
